@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Bejelentkezés";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-lg-4">
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold">Üdv újra!</h2>
+                        <p class="text-muted">Kérjük, jelentkezz be a foglaláshoz.</p>
+                    </div>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email</label>
+                            <input type="email" id="email" name="email"
+                                   class="form-control rounded-3 py-2"
+                                   placeholder="pelda@email.hu" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <label for="password" class="form-label fw-semibold">Jelszó</label>
+                            </div>
+                            <input type="password" id="password" name="password"
+                                   class="form-control rounded-3 py-2" required>
+                        </div>
+
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label small text-muted" for="rememberMe">Emlékezz rám</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">
+                            Bejelentkezés
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="small text-muted">
+                            Még nincs fiókod?
+                            <a asp-controller="Home" asp-action="Registration" class="text-primary fw-bold text-decoration-none">Regisztrálj!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

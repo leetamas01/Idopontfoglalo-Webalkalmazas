@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Regisztráció";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold">Fiók létrehozása</h2>
+                        <p class="text-muted">Csatlakozz hozzánk és foglald le az első időpontod!</p>
+                    </div>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Név</label>
+                            <input type="text" id="name" name="name"
+                                   class="form-control rounded-3" placeholder="Minta Ferenc" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email</label>
+                            <input type="email" id="email" name="email"
+                                   class="form-control rounded-3" placeholder="pelda@email.hu" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-semibold">Telefonszám</label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="form-control rounded-3" placeholder="+36301234567" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Jelszó</label>
+                            <input type="password" id="password" name="password"
+                                   class="form-control rounded-3" required>
+                            <div class="form-text text-muted small">Legalább 8 karakter, kis- és nagybetűvel.</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">
+                            Regisztráció
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="small text-muted">
+                            Már van fiókod?
+                            <a asp-controller="Home" asp-action="Login" class="text-primary fw-bold text-decoration-none">Jelentkezz be!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
