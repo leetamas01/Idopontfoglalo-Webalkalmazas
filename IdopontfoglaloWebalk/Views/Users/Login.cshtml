@@ -13,22 +13,15 @@
                         <p class="text-muted">Kérjük, jelentkezz be a foglaláshoz.</p>
                     </div>
 
-                    @* 1. HIBAÜZENET MEGJELENÍTÉSE *@
                     @if (ViewBag.ErrorMessage != null)
                     {
                         <div class="alert alert-danger text-center py-2 small">
                             @ViewBag.ErrorMessage
                         </div>
                     }
-
-                    @* 2. FORM ÖSSZEKÖTÉSE A KONTROLLERREL *@
                     <form asp-controller="Users" asp-action="Login" method="post">
-
-                        @* 3. BIZTONSÁGI TOKEN (ASP.NET automatikusan generálja, ha van asp- attribútum) *@
-
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">Email</label>
-                            @* FONTOS: name="email" *@
                             <input type="email" id="email" name="email"
                                    class="form-control rounded-3 py-2"
                                    placeholder="pelda@email.hu" required>
@@ -38,7 +31,6 @@
                             <div class="d-flex justify-content-between">
                                 <label for="password" class="form-label fw-semibold">Jelszó</label>
                             </div>
-                            @* FONTOS: name="password" *@
                             <input type="password" id="password" name="password"
                                    class="form-control rounded-3 py-2" required>
                         </div>
@@ -56,7 +48,6 @@
                     <div class="text-center mt-4">
                         <p class="small text-muted">
                             Még nincs fiókod?
-                            @* 4. LINK A REGISZTRÁCIÓHOZ (Ellenőrizd az akció nevét!) *@
                             <a asp-controller="Users" asp-action="Registration" class="text-primary fw-bold text-decoration-none">Regisztrálj!</a>
                         </p>
                     </div>
