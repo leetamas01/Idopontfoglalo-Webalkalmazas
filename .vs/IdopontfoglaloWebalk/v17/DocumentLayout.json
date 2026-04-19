@@ -1,0 +1,334 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tamas\\Documents\\Repos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\view\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\view\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\context\\efcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\home\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\users\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\users\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\idopontfoglalowebalk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\idopontfoglalowebalk.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|c:\\users\\tamas\\documents\\repos\\idopontfoglalowebalk\\migrations\\20260419142146_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AF954F0-829A-4C09-865A-4E7D69BB5A23}|IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj|solutionrelative:idopontfoglalowebalk\\migrations\\20260419142146_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Program.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Program.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Program.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T14:56:22.127Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:35:48.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Registration.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Home\\Registration.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Registration.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Home\\Registration.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:55:08.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:47:08.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T15:04:45.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\User.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\User.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T14:56:07.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\appsettings.json",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\appsettings.json",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\appsettings.json",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-17T15:16:08.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:14:39.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:14:17.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACkAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:04:00.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\View\\UsersController.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\View\\UsersController.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\View\\UsersController.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\View\\UsersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:31:42.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:45:31.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EfContext.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Context\\EfContext.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Context\\EfContext.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Context\\EfContext.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Context\\EfContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T15:07:34.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Users\\Registration.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Users\\Registration.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Users\\Registration.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Users\\Registration.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T15:55:42.255Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-19T14:55:08.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "20260419142146_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Migrations\\20260419142146_InitialCreate.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Migrations\\20260419142146_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Migrations\\20260419142146_InitialCreate.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Migrations\\20260419142146_InitialCreate.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T14:21:46.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-19T15:13:55.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IdopontfoglaloWebalk.csproj",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\IdopontfoglaloWebalk.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-17T15:06:46.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "IdopontfoglaloWebalk\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\tamas\\Documents\\Repos\\IdopontfoglaloWebalk\\Models\\Reservation.cs",
+              "RelativeToolTip": "IdopontfoglaloWebalk\\Models\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T14:56:02.943Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

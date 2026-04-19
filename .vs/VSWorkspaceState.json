@@ -1,4 +1,16 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\IdopontfoglaloWebalk",
+    "\\IdopontfoglaloWebalk\\Context",
+    "\\IdopontfoglaloWebalk\\Controllers",
+    "\\IdopontfoglaloWebalk\\Models",
+    "\\IdopontfoglaloWebalk\\View",
+    "\\IdopontfoglaloWebalk\\Views",
+    "\\IdopontfoglaloWebalk\\Views\\Home",
+    "\\IdopontfoglaloWebalk\\Views\\Shared",
+    "\\IdopontfoglaloWebalk\\Views\\Users"
+  ],
+  "SelectedNode": "\\IdopontfoglaloWebalk\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

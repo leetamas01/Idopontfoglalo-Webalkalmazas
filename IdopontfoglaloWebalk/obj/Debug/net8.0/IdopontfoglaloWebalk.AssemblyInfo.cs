@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("0f28c106-5f91-414f-bddb-b1f33ff1d45b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("IdopontfoglaloWebalk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f06bcb13a26c6cb80fd58de5b4ad25503d7d01ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("IdopontfoglaloWebalk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IdopontfoglaloWebalk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
