@@ -5,6 +5,10 @@
 
     <div class="section text-center py-5 mb-5">
         <div class="container">
+        @if (Context.Session.GetString("UserName") != null)
+        {
+            <p class="text-secondary mb-1 fw-light fs-4">Üdv, @Context.Session.GetString("UserName")!</p>
+        }
             <h1 class="display-4 fw-bold mb-3">Találd meg a tökéletes időpontot!</h1>
             <p class="lead mb-4">Foglalj egyszerűen online.</p>
 

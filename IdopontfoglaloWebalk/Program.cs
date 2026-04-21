@@ -13,11 +13,19 @@ builder.Services.AddDbContext<EfContext>(options =>
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 
 builder.Services.AddDistributedMemoryCache();
+
+builder.Services.ConfigureExternalCookie(options => {
+    options.Cookie.SameSite = SameSiteMode.Lax;
+});
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+
+    options.Cookie.SameSite = SameSiteMode.Lax;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 });
 
 var app = builder.Build();
