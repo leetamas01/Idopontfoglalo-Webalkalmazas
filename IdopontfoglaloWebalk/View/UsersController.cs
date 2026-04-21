@@ -110,7 +110,7 @@ namespace IdopontfoglaloWebalk.View
             {
                 _context.Add(user);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Home");
             }
 
             return View("Registration", user);
