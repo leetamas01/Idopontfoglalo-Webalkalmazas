@@ -1,8 +1,8 @@
-﻿@{
+﻿@model IdopontfoglaloWebalk.Models.User
+
+@{
     ViewData["Title"] = "Regisztráció";
 }
-
-@model IdopontfoglaloWebalk.Models.User
 
 <div class="container py-5">
     <div class="row justify-content-center">
@@ -14,28 +14,31 @@
                         <p class="text-muted">Csatlakozz hozzánk és foglald le az első időpontod!</p>
                     </div>
 
-                    <form asp-controller="Users" asp-action="Create" method="post">
+                    <div asp-validation-summary="All" class="text-danger small mb-3"></div>
+
+                    <form asp-controller="Users" asp-action="Registration" method="post">
+
                         <div class="mb-3">
-                            <label for="name" class="form-label fw-semibold">Név</label>
-                            <input type="text" id="name" name="name"
-                                   class="form-control rounded-3" placeholder="Minta Ferenc" required>
+                            <label asp-for="UserName" class="form-label fw-semibold">Felhasználónév</label>
+                            <input asp-for="UserName" class="form-control rounded-3" placeholder="mintaferi88" required />
+                            <span asp-validation-for="UserName" class="text-danger small"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label fw-semibold">Email</label>
-                            <input type="email" id="email" name="email"
-                                   class="form-control rounded-3" placeholder="pelda@email.hu" required>
+                            <label asp-for="Email" class="form-label fw-semibold">Email cím</label>
+                            <input asp-for="Email" class="form-control rounded-3" placeholder="pelda@email.hu" required />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone" class="form-label fw-semibold">Telefonszám</label>
-                            <input type="tel" id="phone" name="phone"
-                                   class="form-control rounded-3" placeholder="+36301234567" required>
+                            <label asp-for="PhoneNumber" class="form-label fw-semibold">Telefonszám</label>
+                            <input asp-for="PhoneNumber" class="form-control rounded-3" placeholder="+36301234567" required />
+                            <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
                         </div>
 
                         <div class="mb-4">
-                            <label for="plainPassword" class="form-label fw-semibold">Jelszó</label>
-                            <input type="password" id="plainPassword" name="password" class="form-control rounded-3" required>
+                            <label for="password" class="form-label fw-semibold">Jelszó</label>
+                            <input type="password" id="password" name="password" class="form-control rounded-3" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold">

@@ -1,0 +1,65 @@
+﻿@model IdopontfoglaloWebalk.Models.User
+
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<div class="container py-5" style="max-width: 900px;">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="bg-primary py-4 text-center">
+                    <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 80px; height: 80px;">
+                        <span class="fs-1 fw-bold text-primary">@Model.UserName[0]</span>
+                    </div>
+                </div>
+                <div class="card-body text-center pt-0" style="margin-top: -20px;">
+                    <div class="bg-white rounded-4 p-3 shadow-sm mx-2">
+                        <h5 class="fw-bold mb-0">@Model.UserName</h5>
+                        <small class="text-muted">@Model.Email</small>
+                    </div>
+                    <div class="mt-4 text-start px-3">
+                        <p class="small mb-1 text-muted">Telefonszám</p>
+                        <p class="fw-medium">@(Model.PhoneNumber ?? "Nincs megadva")</p>
+
+                        <p class="small mb-1 text-muted">Szolgáltatás</p>
+                        <p class="fw-medium">@Model.service</p>
+
+                        <button type="button" class="btn btn-outline-primary btn-sm w-100 rounded-pill mt-3"
+                                data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                            Profil szerkesztése
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h4 class="fw-bold mb-4">Közelgő foglalásaid</h4>
+        </div>
+        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-0 shadow rounded-4">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title fw-bold" id="editProfileModalLabel">Adatok módosítása</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-controller="Profile" asp-action="Update" method="post">
+                        <div class="modal-body py-4">
+                            <div class="mb-3">
+                                <label for="email" class="form-label small fw-bold text-muted">Email cím</label>
+                                <input type="email" id="email" name="email" class="form-control rounded-3" value="@Model.Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phoneNumber" class="form-label small fw-bold text-muted">Telefonszám</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control rounded-3" value="@Model.PhoneNumber">
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 pt-0">
+                            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Mégsem</button>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Mentés</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
