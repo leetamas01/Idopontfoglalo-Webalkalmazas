@@ -14,12 +14,12 @@ namespace IdopontfoglaloWebalk.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<Users> _userManager;
+        private readonly SignInManager<Users> _signInManager;
 
         private readonly EfContext _context;
 
-        public UsersController(UserManager<User> userManager, SignInManager<User> signInManager, EfContext context)
+        public UsersController(UserManager<Users> userManager, SignInManager<Users> signInManager, EfContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -28,22 +28,30 @@ namespace IdopontfoglaloWebalk.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string email, string password, bool rememberMe)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByEmailAsync(email);
+                var user = await _userManager.FindByEmailAsync(model.Email);
 
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(
-                        user.UserName,
-                        password,
-                        rememberMe,
-                        lockoutOnFailure: false);
+                    user.UserName!,
+                    model.Password,
+                    model.RememberMe,
+                    lockoutOnFailure: false);
 
                     if (result.Succeeded)
                     {
+                        if (model.RememberMe)
+                        {
+                            Response.Cookies.Append("RememberedEmail", model.Email, new CookieOptions { Expires = DateTime.Now.AddDays(30) });
+                        }
+                        else
+                        {
+                            Response.Cookies.Delete("RememberedEmail");
+                        }
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -53,15 +61,14 @@ namespace IdopontfoglaloWebalk.Controllers
             return View("~/Views/Users/Login.cshtml");
         }
         [HttpPost]
-        public async Task<IActionResult> Registration(User user, string password)
+        public async Task<IActionResult> Registration(Users user, string password)
         {
             user.rating = 0;
-            user.service = "Customer";
-
             var result = await _userManager.CreateAsync(user, password);
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "User");
                 return RedirectToAction("Login", "Users");
             }
 
@@ -73,15 +80,38 @@ namespace IdopontfoglaloWebalk.Controllers
         }
         public async Task<IActionResult> Logout()
         {
+            var user = await _userManager.GetUserAsync(User);
+
+            var userEmail = user?.Email;
+
             await _signInManager.SignOutAsync();
             HttpContext.Session.Clear();
 
+            if (!string.IsNullOrEmpty(userEmail))
+            {
+                CookieOptions option = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(30),
+                    HttpOnly = true,
+                    Secure = true,
+                    IsEssential = true
+                };
+                Response.Cookies.Append("RememberedEmail", userEmail, option);
+            }
             return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Login()
         {
-            return View();
+            var model = new LoginViewModel();
+
+            if (Request.Cookies.TryGetValue("RememberedEmail", out string? savedEmail))
+            {
+                model.Email = savedEmail;
+                model.RememberMe = true;
+            }
+
+            return View(model);
         }
         public IActionResult Registration()
         {

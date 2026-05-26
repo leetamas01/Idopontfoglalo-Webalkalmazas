@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 [Authorize]
 public class ProfileController : Controller
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
+    private readonly UserManager<Users> _userManager;
+    private readonly SignInManager<Users> _signInManager;
 
     private readonly EfContext _context;
 
-    public ProfileController(UserManager<User> userManager, SignInManager<User> signInManager, EfContext context)
+    public ProfileController(UserManager<Users> userManager, SignInManager<Users> signInManager, EfContext context)
     {
         _userManager = userManager;
         _signInManager = signInManager;

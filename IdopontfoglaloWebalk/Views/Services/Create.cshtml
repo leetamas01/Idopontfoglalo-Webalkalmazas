@@ -1,0 +1,68 @@
+﻿@model IdopontfoglaloWebalk.Models.Services
+
+@{
+    ViewData["Title"] = "Új szolgáltatás létrehozása";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="MyServices" class="text-decoration-none">Saját Szolgáltatásaim
+                    </a></li>
+                    <li class="breadcrumb-item active">Új szolgáltatás</li>
+                </ol>
+            </nav>
+
+            <div class="card shadow border-0 rounded-4 p-4 p-lg-5">
+                <div class="text-center mb-4">
+                    <i class="bi bi-building-add text-success fs-1"></i>
+                    <h2 class="fw-bold mt-2">Szolgáltatás létrehozása</h2>
+                    <p class="text-muted">Add meg a szolgáltatásod alapvető adatait!</p>
+                </div>
+
+                <form asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label asp-for="category_id" class="form-label fw-semibold">Kategória</label>
+                        <select asp-for="category_id" class="form-select rounded-3 py-2" asp-items="ViewBag.CategoryList" required>
+                            <option value="">-- Kérlek válassz kategóriát --</option>
+                        </select>
+                        <span asp-validation-for="category_id" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="name" class="form-label fw-semibold">Szolgáltatás neve</label>
+                        <input asp-for="name" class="form-control rounded-3 py-2" placeholder="Pl. Aranyolló Fodrászat" />
+                        <span asp-validation-for="name" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="address" class="form-label fw-semibold">Pontos cím</label>
+                        <input asp-for="address" class="form-control rounded-3 py-2" placeholder="Város, utca, házszám" />
+                        <span asp-validation-for="address" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="description" class="form-label fw-semibold">Rövid bemutatkozás</label>
+                        <textarea asp-for="description" class="form-control rounded-3" rows="5" placeholder="Írd le mivel foglalkozol, mikor vagy nyitva, stb..."></textarea>
+                        <span asp-validation-for="description" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold">Szolgáltatás mentése</button>
+                        <a asp-action="MyServices" class="btn btn-link text-muted text-decoration-none">Mégse és vissza</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

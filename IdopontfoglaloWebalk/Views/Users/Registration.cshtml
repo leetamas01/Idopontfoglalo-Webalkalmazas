@@ -1,4 +1,4 @@
-﻿@model IdopontfoglaloWebalk.Models.User
+﻿@model IdopontfoglaloWebalk.Models.Users
 
 @{
     ViewData["Title"] = "Regisztráció";
@@ -19,8 +19,8 @@
                     <form asp-controller="Users" asp-action="Registration" method="post">
 
                         <div class="mb-3">
-                            <label asp-for="UserName" class="form-label fw-semibold">Felhasználónév</label>
-                            <input asp-for="UserName" class="form-control rounded-3" placeholder="mintaferi88" required />
+                            <label asp-for="UserName" class="form-label fw-semibold">Név</label>
+                            <input asp-for="UserName" class="form-control rounded-3" placeholder="Minta Feri" required />
                             <span asp-validation-for="UserName" class="text-danger small"></span>
                         </div>
 

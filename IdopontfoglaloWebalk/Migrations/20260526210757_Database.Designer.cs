@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IdopontfoglaloWebalk.Migrations
 {
     [DbContext(typeof(EfContext))]
-    [Migration("20260426162955_InitialIdentitySetup")]
-    partial class InitialIdentitySetup
+    [Migration("20260526210757_Database")]
+    partial class Database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,156 @@ namespace IdopontfoglaloWebalk.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("IdopontfoglaloWebalk.Models.User", b =>
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Categories", b =>
+                {
+                    b.Property<int>("category_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("category_id"));
+
+                    b.Property<string>("category_name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("category_id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Feedbacks", b =>
+                {
+                    b.Property<int>("feedback_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("feedback_id"));
+
+                    b.Property<string>("feedbacktext_guest")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("feedbacktext_owner")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("guest_id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<double>("rating_guest")
+                        .HasColumnType("double");
+
+                    b.Property<double>("rating_owner")
+                        .HasColumnType("double");
+
+                    b.Property<int>("reservation_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("service_owner_id")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("feedback_id");
+
+                    b.HasIndex("guest_id");
+
+                    b.HasIndex("reservation_Id");
+
+                    b.HasIndex("service_owner_id");
+
+                    b.ToTable("Feedbacks");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Occasions", b =>
+                {
+                    b.Property<int>("reservation_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("reservation_id"));
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("reservation_date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("service_category_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("status")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("user_id")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("reservation_id");
+
+                    b.HasIndex("service_category_id");
+
+                    b.HasIndex("user_id");
+
+                    b.ToTable("Occasions");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.ServiceCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("service_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("service_id");
+
+                    b.ToTable("ServiceCategories");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Services", b =>
+                {
+                    b.Property<int>("service_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("service_id"));
+
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("category_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("owner_id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<double>("rating")
+                        .HasColumnType("double");
+
+                    b.HasKey("service_id");
+
+                    b.HasIndex("category_id");
+
+                    b.HasIndex("owner_id");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Users", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -77,15 +226,8 @@ namespace IdopontfoglaloWebalk.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
 
-                    b.Property<int>("rating")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("rememberMe")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("service")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<double>("rating")
+                        .HasColumnType("double");
 
                     b.HasKey("Id");
 
@@ -231,6 +373,78 @@ namespace IdopontfoglaloWebalk.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Feedbacks", b =>
+                {
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", "Guest")
+                        .WithMany()
+                        .HasForeignKey("guest_id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("IdopontfoglaloWebalk.Models.Occasions", "Reservation")
+                        .WithMany()
+                        .HasForeignKey("reservation_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", "ServiceOwner")
+                        .WithMany()
+                        .HasForeignKey("service_owner_id")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Guest");
+
+                    b.Navigation("Reservation");
+
+                    b.Navigation("ServiceOwner");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Occasions", b =>
+                {
+                    b.HasOne("IdopontfoglaloWebalk.Models.ServiceCategories", "ServiceCategory")
+                        .WithMany("Occasions")
+                        .HasForeignKey("service_category_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("user_id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("ServiceCategory");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.ServiceCategories", b =>
+                {
+                    b.HasOne("IdopontfoglaloWebalk.Models.Services", "Service")
+                        .WithMany("ServiceCategories")
+                        .HasForeignKey("service_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Services", b =>
+                {
+                    b.HasOne("IdopontfoglaloWebalk.Models.Categories", "Category")
+                        .WithMany("Services")
+                        .HasForeignKey("category_id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", "Owner")
+                        .WithMany()
+                        .HasForeignKey("owner_id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Owner");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -242,7 +456,7 @@ namespace IdopontfoglaloWebalk.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("IdopontfoglaloWebalk.Models.User", null)
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -251,7 +465,7 @@ namespace IdopontfoglaloWebalk.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("IdopontfoglaloWebalk.Models.User", null)
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -266,7 +480,7 @@ namespace IdopontfoglaloWebalk.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("IdopontfoglaloWebalk.Models.User", null)
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -275,11 +489,26 @@ namespace IdopontfoglaloWebalk.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("IdopontfoglaloWebalk.Models.User", null)
+                    b.HasOne("IdopontfoglaloWebalk.Models.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Categories", b =>
+                {
+                    b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.ServiceCategories", b =>
+                {
+                    b.Navigation("Occasions");
+                });
+
+            modelBuilder.Entity("IdopontfoglaloWebalk.Models.Services", b =>
+                {
+                    b.Navigation("ServiceCategories");
                 });
 #pragma warning restore 612, 618
         }

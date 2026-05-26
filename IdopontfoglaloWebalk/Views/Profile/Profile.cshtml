@@ -1,4 +1,4 @@
-﻿@model IdopontfoglaloWebalk.Models.User
+﻿@model IdopontfoglaloWebalk.Models.Users
 
 @{
     ViewData["Title"] = "Profil";
@@ -23,7 +23,7 @@
                         <p class="fw-medium">@(Model.PhoneNumber ?? "Nincs megadva")</p>
 
                         <p class="small mb-1 text-muted">Szolgáltatás</p>
-                        <p class="fw-medium">@Model.service</p>
+                        <p class="fw-medium">@Model.rating</p>
 
                         <button type="button" class="btn btn-outline-primary btn-sm w-100 rounded-pill mt-3"
                                 data-bs-toggle="modal" data-bs-target="#editProfileModal">

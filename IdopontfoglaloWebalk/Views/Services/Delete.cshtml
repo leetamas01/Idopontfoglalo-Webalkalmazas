@@ -1,0 +1,37 @@
+﻿@model IdopontfoglaloWebalk.Models.Services
+
+@{
+    ViewData["Title"] = "Szolgáltatás törlése";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger border-2 shadow rounded-4 p-4 text-center">
+                <i class="bi bi-exclamation-triangle-fill text-danger fs-1 mb-3"></i>
+                <h2 class="fw-bold text-danger">Biztosan törlöd?</h2>
+                <p class="text-muted mb-4">
+                    Figyelem! A(z) <strong class="text-dark">@Model.name</strong> törlésével az összes hozzá tartozó árlista és naptári időpont véglegesen és visszaállíthatatlanul törlődni fog!
+                </p>
+
+                <div class="bg-light p-3 rounded-3 text-start mb-4">
+                    <p class="mb-1"><strong>Név:</strong> @Model.name</p>
+                    <p class="mb-1"><strong>Cím:</strong> @Model.address</p>
+                    <p class="mb-0"><strong>Kategória:</strong> @Model.Category?.category_name</p>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="service_id" />
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger btn-lg rounded-pill fw-bold">
+                            <i class="bi bi-trash-fill"></i> Igen, véglegesen törlöm
+                        </button>
+                        <a asp-action="MyServices" class="btn btn-outline-secondary rounded-pill">Mégse</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
