@@ -1,0 +1,127 @@
+﻿@model IdopontfoglaloWebalk.Models.Services
+
+@{
+    ViewData["Title"] = Model.name + " - Időpontok kezelése";
+}
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<div class="container py-5">
+    <div class="mb-3">
+        <a asp-action="MyServices" class="text-decoration-none text-muted">
+            <i class="bi bi-arrow-left"></i> Vissza a szolgáltatásaimhoz
+        </a>
+    </div>
+
+    <div class="mb-4">
+        <h1 class="fw-bold text-dark">@Model.name <span class="fs-4 text-muted">- Naptár</span></h1>
+        <p class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i> @Model.address</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-3">
+            <div class="card shadow-sm border-0 rounded-4 p-4 bg-light mb-3">
+                <h4 class="fw-bold mb-3">Kezelőpanel</h4>
+                <p class="small text-muted">Kattints a naptár egy tetszőleges idősávjára új szabad időpont meghirdetéséhez.</p>
+
+                <hr />
+
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-success rounded-pill fw-bold" <!--onclick="alert('Itt indíthatod el az automatikus idősáv generálást!')-->">
+                        <i class="bi bi-magic me-1"></i> Idősávok generálása
+                    </button>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4 p-3 bg-white">
+                <h6 class="fw-bold mb-2">Jelmagyarázat</h6>
+                <div class="d-flex align-items-center mb-1">
+                    <span class="badge bg-success me-2" style="width: 20px; height: 12px; display: inline-block;"> </span>
+                    <span class="small text-muted">Szabad időpont</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-danger me-2" style="width: 20px; height: 12px; display: inline-block;"> </span>
+                    <span class="small text-muted">Lefoglalt alkalom</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="card shadow-sm border-0 rounded-4 p-4 bg-white">
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek', // Heti, idősávos nézet
+            locale: 'hu',
+            firstDay: 1,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'timeGridWeek,timeGridDay'
+            },
+            buttonText: {
+                today: 'Ma',
+                week: 'Hét',
+                day: 'Nap'
+            },
+            slotDuration: '00:30:00',
+            slotLabelFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                meridiem: false,
+                hour12: false
+            },
+            allDaySlot: false,
+            slotMinTime: '07:00:00',
+            slotMaxTime: '20:00:00',
+
+            events: [
+                /* {
+                    id: '1',
+                    title: 'Szabad időpont',
+                    start: '2026-06-08T10:00:00',
+                    end: '2026-06-08T10:30:00',
+                    backgroundColor: '#198754',
+                    borderColor: '#198754'
+                } */
+            ],
+            /*dateClick: function(info) {
+                alert('Kijelölt időpont: ' + info.dateStr + '\nItt nyithatunk majd meg egy Bootstrap Modalt az új időpont rögzítéséhez!');
+            }*/
+        });
+
+        calendar.render();
+    });
+</script>
+
+<style>
+    .fc {
+        --fc-border-color: #e9ecef;
+        --fc-button-bg-color: #0d6efd;
+        --fc-button-border-color: #0d6efd;
+        --fc-button-hover-bg-color: #0b5ed7;
+        --fc-button-active-bg-color: #0a58ca;
+    }
+    .fc .fc-toolbar-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #212529;
+    }
+    .fc .fc-col-header-cell-cushion {
+        color: #495057;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+    }
+    .fc .fc-timegrid-slot-label-cushion {
+        color: #6c757d;
+    }
+</style>

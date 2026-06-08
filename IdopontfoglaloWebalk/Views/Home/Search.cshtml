@@ -1,0 +1,59 @@
+﻿@model IEnumerable<IdopontfoglaloWebalk.Models.Services>
+
+@{
+    ViewData["Title"] = "Találatok: " + ViewBag.Query;
+}
+
+<div class="container py-5">
+    <div class="mb-4">
+        <a asp-action="Index" class="text-decoration-none text-muted">
+            <i class="bi bi-arrow-left"></i> Vissza a főoldalra
+        </a>
+        <h2 class="fw-bold mt-2">Keresési eredmények a következőre: <span class="text-primary">"@ViewBag.Query"</span></h2>
+        <p class="text-muted">Talált tételek száma: @Model.Count()</p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5 bg-light rounded-4 shadow-sm">
+            <i class="bi bi-search fs-1 text-muted mb-3 d-block"></i>
+            <h4 class="fw-bold">Nincs találat</h4>
+            <p class="text-muted">Sajnos nem találtunk a keresésnek megfelelő szolgáltatót. Próbálkozz más kifejezéssel!</p>
+            <a asp-action="Index" class="btn btn-primary rounded-pill px-4">Új keresés</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h4 class="card-title fw-bold text-dark mb-0">@item.name</h4>
+                                <span class="badge bg-warning text-dark rounded-pill">
+                                    <i class="bi bi-star-fill"></i> @item.rating.ToString("0.0")
+                                </span>
+                            </div>
+
+                            <p class="text-muted small mb-2">
+                                <i class="bi bi-geo-alt-fill text-danger"></i> @item.address
+                            </p>
+
+                            <p class="card-text text-secondary flex-grow-1">
+                                @(item.description?.Length > 120 ? item.description.Substring(0, 115) + "..." : item.description)
+                            </p>
+
+                            <div class="mt-3">
+                                <a asp-controller="Home" asp-action="BookAppointment" asp-route-id="@item.service_id" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
+                                    <i class="bi bi-calendar-check me-1"></i> Időpont foglalása
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

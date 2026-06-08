@@ -161,5 +161,55 @@ namespace IdopontfoglaloWebalk.Controllers
 
             return RedirectToAction(nameof(MyServices));
         }
+        // GET: Services/Calendar/5
+        [HttpGet]
+        public async Task<IActionResult> Calendar(int id)
+        {
+            var service = await _context.Services.FindAsync(id);
+            if (service == null)
+            {
+                return NotFound();
+            }
+
+            if (service.owner_id != _userManager.GetUserId(User))
+            {
+                return Forbid();
+            }
+
+            return View(service);
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> GetCalendarEvents(int service_id, DateTime start, DateTime end)
+        {
+            var occasions = await _context.Occasions
+                .Include(o => o.ServiceCategory)
+                .Where(o => o.service_id == service_id && o.date >= start && o.date <= end)
+                .ToListAsync();
+
+            var eventList = occasions.Select(o => new
+            {
+                id = o.reservation_id,
+
+                title = o.status == "reserved"
+                    ? "FOGLALT: " + (o.ServiceCategory != null ? o.ServiceCategory.Name : "Szolgáltatás")
+                    : (o.ServiceCategory != null ? o.ServiceCategory.Name : "Szabad időpont"),
+
+                start = o.date.ToString("yyyy-MM-ddTHH:mm:ss"),
+
+                end = o.date.AddMinutes(30).ToString("yyyy-MM-ddTHH:mm:ss"),
+
+                backgroundColor = o.status == "reserved" ? "#dc3545" : "#198754",
+                borderColor = o.status == "reserved" ? "#dc3545" : "#198754",
+
+                extendedProps = new
+                {
+                    status = o.status,
+                    userId = o.user_id
+                }
+            });
+
+            return Json(eventList);
+        }
     }
 }

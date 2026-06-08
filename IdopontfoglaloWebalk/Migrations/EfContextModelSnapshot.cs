@@ -90,10 +90,13 @@ namespace IdopontfoglaloWebalk.Migrations
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("reservation_date")
+                    b.Property<DateTime?>("reservation_date")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("service_category_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("service_id")
                         .HasColumnType("int");
 
                     b.Property<string>("status")
@@ -105,6 +108,8 @@ namespace IdopontfoglaloWebalk.Migrations
                     b.HasKey("reservation_id");
 
                     b.HasIndex("service_category_id");
+
+                    b.HasIndex("service_id");
 
                     b.HasIndex("user_id");
 
@@ -403,10 +408,18 @@ namespace IdopontfoglaloWebalk.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("IdopontfoglaloWebalk.Models.Services", "Service")
+                        .WithMany()
+                        .HasForeignKey("service_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("IdopontfoglaloWebalk.Models.Users", "User")
                         .WithMany()
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Service");
 
                     b.Navigation("ServiceCategory");
 

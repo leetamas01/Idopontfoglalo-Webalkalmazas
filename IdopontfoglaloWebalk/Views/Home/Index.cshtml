@@ -3,48 +3,63 @@
 }
 @model IdopontfoglaloWebalk.Models.Users
 
-    <div class="section text-center py-5 mb-5">
-        <div class="container">
+<div class="section text-center py-5 mb-5">
+    <div class="container">
         @if (User.Identity.IsAuthenticated)
         {
             <p class="text-secondary mb-1 fw-light fs-4">Üdv, @User.Identity.Name!</p>
         }
-            <h1 class="display-4 fw-bold mb-3">Találd meg a tökéletes időpontot!</h1>
-            <p class="lead mb-4">Foglalj egyszerűen online.</p>
+        <h1 class="display-4 fw-bold mb-3">Találd meg a tökéletes időpontot!</h1>
+        <p class="lead mb-4">Foglalj egyszerűen online.</p>
 
-            <div class="search-container mx-auto">
-                <form action="" method="get" class="d-flex shadow-sm p-2 bg-white rounded-pill">
-                    <input type="search" name="search" class="form-control border-0 rounded-pill px-4"
-                           placeholder="Milyen szolgáltatást keresel?" required />
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">Keresés</button>
-                </form>
-            </div>
+        <div class="search-container mx-auto" style="max-width: 600px;">
+            <form asp-controller="Home" asp-action="Search" method="get" class="d-flex shadow-sm p-2 bg-white rounded-pill">
+                <input type="search" name="searchQuery" class="form-control border-0 rounded-pill px-4"
+                       placeholder="Milyen szolgáltatást keresel?" required />
+                <button type="submit" class="btn btn-primary rounded-pill px-4">Keresés</button>
+            </form>
         </div>
     </div>
+</div>
 
-    <div class="container">
-        <h3 class="mb-4 text-center">Népszerű kategóriák</h3>
+<div class="container mb-5">
+    <h3 class="mb-4 text-center fw-bold">Népszerű kategóriák</h3>
 
-        <div class="row g-4 text-center">
-            <div class="col-6 col-md-3">
-                <a href="" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4">
-                    <div class="category-name text-dark fw-semibold">Fodrászat</div>
-                </a>
-            </div>
-            <div class="col-6 col-md-3">
-                <a href="" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4">
-                    <div class="category-name text-dark fw-semibold">Masszázs</div>
-                </a>
-            </div>
-            <div class="col-6 col-md-3">
-                <a href="" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4">
-                    <div class="category-name text-dark fw-semibold">Orvos</div>
-                </a>
-            </div>
-            <div class="col-6 col-md-3">
-                <a href="" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4">
-                    <div class="category-name text-dark fw-semibold">Fogászat</div>
-                </a>
-            </div>
+    <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+            <a asp-controller="Home" asp-action="Search" asp-route-searchQuery="Fodrászat" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4 bg-white text-dark hover-shadow">
+                <div class="fs-1 mb-2"></div>
+                <div class="category-name fw-semibold">Fodrászat</div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Home" asp-action="Search" asp-route-searchQuery="Masszázs" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4 bg-white text-dark hover-shadow">
+                <div class="fs-1 mb-2"></div>
+                <div class="category-name fw-semibold">Masszázs</div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Home" asp-action="Search" asp-route-searchQuery="Orvos" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4 bg-white text-dark hover-shadow">
+                <div class="fs-1 mb-2"></div>
+                <div class="category-name fw-semibold">Orvos</div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Home" asp-action="Search" asp-route-searchQuery="Fogászat" class="category-card shadow-sm p-4 d-block text-decoration-none rounded-4 bg-white text-dark hover-shadow">
+                <div class="fs-1 mb-2"></div>
+                <div class="category-name fw-semibold">Fogászat</div>
+            </a>
         </div>
     </div>
+</div>
+
+<style>
+    .hover-shadow {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+        }
+</style>
