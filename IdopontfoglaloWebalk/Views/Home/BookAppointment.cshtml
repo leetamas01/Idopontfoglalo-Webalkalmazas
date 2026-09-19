@@ -4,6 +4,8 @@
     ViewData["Title"] = "Időpont foglalás - " + Model.name;
 }
 
+@Html.AntiForgeryToken()
+
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
 <div class="container py-5">
@@ -39,6 +41,11 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
+
+        //Kiolvassuk az Antiforgery tokent a lapról
+        var tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+        var token = tokenInput ? tokenInput.value : '';
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'timeGridWeek',
             locale: 'hu',
@@ -67,13 +74,58 @@
 
                 if (status === 'reserved') {
                     alert('Ez az időpont sajnos már foglalt!');
-                } else {
-                    if (confirm('Szeretnéd lefoglalni ezt az időpontot: ' + info.event.title + '?')) {
-                        alert('Foglalás elindítva a következő ID-hoz: ' + info.event.id);
+                    return;
+                }
+
+                //Ellenőrizzük a bejelentkezési állapotot
+
+                var isAuthenticated = @(User.Identity.IsAuthenticated.ToString().ToLower());
+
+                if (!isAuthenticated) {
+                    if (confirm('Az időpont lefoglalásához be kell jelentkezned. Szeretnél most átlépni a bejelentkezéshez?')) {
+                        //Átirányítás a Login felületre
+                        window.location.href = '/Users/Login';
                     }
+                    return;
+                }
+
+                var dateStr = info.event.start ? info.event.start.toLocaleString('hu-HU', {
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                }) : '';
+
+                if (confirm('Biztosan le szeretnéd foglalni ezt az időpontot?\n\n' + info.event.title + '\nIdőpont: ' + dateStr)) {
+                    var formData = new FormData();
+                    formData.append('occasionId', info.event.id);
+
+                    fetch('/Services/BookOccasion', {
+                        method: 'POST',
+                        headers: {
+                            'RequestVerificationToken': token
+                        },
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data && data.success) {
+                                alert(data.message);
+                                calendar.refetchEvents();
+                            } else if (data && data.requireLogin) {
+                                window.location.href = '/Users/Login';
+                            } else {
+                                alert('Hiba: ' + (data ? data.message : 'Ismeretlen hiba'));
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Hiba a foglalás során:', err);
+                        });
                 }
             }
         });
+
         calendar.render();
     });
 </script>

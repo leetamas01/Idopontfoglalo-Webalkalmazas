@@ -1,65 +1,224 @@
-﻿@model IdopontfoglaloWebalk.Models.Users
+﻿@model IdopontfoglaloWebalk.Models.ProfileViewModel
 
 @{
     ViewData["Title"] = "Profil";
+    bool isAdmin = User.IsInRole("Admin") || Model.User.UserName == "admin";
 }
 
-<div class="container py-5" style="max-width: 900px;">
+<div class="container py-5" style="max-width: 960px;">
+
+    @if (TempData["StatusMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show rounded-4 shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> @TempData["StatusMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show rounded-4 shadow-sm" role="alert">
+            <i class="bi bi-exclamation-circle-fill me-2"></i> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
                 <div class="bg-primary py-4 text-center">
                     <div class="bg-white rounded-circle d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 80px; height: 80px;">
-                        <span class="fs-1 fw-bold text-primary">@Model.UserName[0]</span>
+                        <span class="fs-1 fw-bold text-primary">@(Model.User.UserName != null ? Model.User.UserName[0].ToString().ToUpper() : "U")</span>
                     </div>
                 </div>
                 <div class="card-body text-center pt-0" style="margin-top: -20px;">
                     <div class="bg-white rounded-4 p-3 shadow-sm mx-2">
-                        <h5 class="fw-bold mb-0">@Model.UserName</h5>
-                        <small class="text-muted">@Model.Email</small>
+                        <h5 class="fw-bold mb-0">@Model.User.UserName</h5>
+                        <small class="text-muted">@Model.User.Email</small>
+                        @if (isAdmin)
+                        {
+                            <div class="mt-1">
+                                <span class="badge bg-danger rounded-pill">Adminisztrátor</span>
+                            </div>
+                        }
                     </div>
                     <div class="mt-4 text-start px-3">
                         <p class="small mb-1 text-muted">Telefonszám</p>
-                        <p class="fw-medium">@(Model.PhoneNumber ?? "Nincs megadva")</p>
+                        <p class="fw-medium">@(Model.User.PhoneNumber ?? "Nincs megadva")</p>
 
                         <p class="small mb-1 text-muted">Értékelés</p>
-                        <p class="fw-medium">@Model.rating</p>
+                        <p class="fw-medium">
+                            <i class="bi bi-star-fill text-warning"></i> @Model.User.rating.ToString("0.0")
+                        </p>
 
-                        <button type="button" class="btn btn-outline-primary btn-sm w-100 rounded-pill mt-3"
-                                data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                            Profil szerkesztése
-                        </button>
+                        <hr class="my-3 text-muted" />
+
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-outline-primary btn-sm rounded-pill"
+                                    data-bs-toggle="modal" data-bs-target="#editProfileModal">
+                                <i class="bi bi-pencil me-1"></i> Profil szerkesztése
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill"
+                                    data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                                <i class="bi bi-shield-lock me-1"></i> Jelszó módosítása
+                            </button>
+
+                            @if (!isAdmin)
+                            {
+                                <button type="button" class="btn btn-outline-danger btn-sm rounded-pill"
+                                        data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
+                                    <i class="bi bi-trash me-1"></i> Fiók törlése
+                                </button>
+                            }
+                            else
+                            {
+                                <div class="text-center py-1">
+                                    <span class="badge bg-light text-muted border small">Rendszerfiók nem törölhető</span>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-8">
-            <h4 class="fw-bold mb-4">Közelgő foglalásaid</h4>
-        </div>
-        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content border-0 shadow rounded-4">
-                    <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title fw-bold" id="editProfileModalLabel">Adatok módosítása</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form asp-controller="Profile" asp-action="Update" method="post">
-                        <div class="modal-body py-4">
-                            <div class="mb-3">
-                                <label for="email" class="form-label small fw-bold text-muted">Email cím</label>
-                                <input type="email" id="email" name="email" class="form-control rounded-3" value="@Model.Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phoneNumber" class="form-label small fw-bold text-muted">Telefonszám</label>
-                                <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control rounded-3" value="@Model.PhoneNumber">
-                            </div>
-                        </div>
-                        <div class="modal-footer border-0 pt-0">
-                            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Mégsem</button>
-                            <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Mentés</button>
-                        </div>
-                    </form>
+            <h4 class="fw-bold mb-4">Foglalásaid</h4>
+
+            @if (!Model.Reservations.Any())
+            {
+                <div class="card border-0 shadow-sm rounded-4 p-5 text-center bg-light">
+                    <i class="bi bi-calendar-x fs-1 text-muted mb-3 d-block"></i>
+                    <h5 class="fw-bold text-dark">Nincsenek aktív foglalásaid</h5>
+                    <p class="text-muted small mb-3">Még nem választottál időpontot egyetlen szolgáltatóhoz sem.</p>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary rounded-pill px-4 align-self-center">
+                        Szolgáltatások keresése
+                    </a>
                 </div>
+            }
+            else
+            {
+                <div class="d-flex flex-column gap-3">
+                    @foreach (var reservation in Model.Reservations)
+                    {
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                                <div>
+                                    <h6 class="fw-bold mb-1 text-dark">@(reservation.Service?.name ?? "Szolgáltatás")</h6>
+                                    <p class="text-muted small mb-1">
+                                        <i class="bi bi-tag-fill text-primary me-1"></i> @(reservation.ServiceCategory?.Name ?? "Általános")
+                                    </p>
+                                    <p class="text-muted small mb-1">
+                                        <i class="bi bi-geo-alt-fill text-danger me-1"></i> @(reservation.Service?.address ?? "Cím nem elérhető")
+                                    </p>
+                                    <span class="badge bg-light text-dark border rounded-pill px-3 py-1">
+                                        <i class="bi bi-clock me-1 text-primary"></i> @reservation.date.ToString("yyyy. MM. dd. HH:mm")
+                                    </span>
+                                </div>
+                                <div>
+                                    <form asp-controller="Profile" asp-action="CancelReservation" method="post" onsubmit="return confirm('Biztosan le szeretnéd mondani ezt a foglalást?');">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="reservationId" value="@reservation.reservation_id" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                                            <i class="bi bi-x-circle me-1"></i> Lemondás
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow rounded-4">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold" id="editProfileModalLabel">Adatok módosítása</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-controller="Profile" asp-action="Update" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-body py-4">
+                    <div class="mb-3">
+                        <label for="email" class="form-label small fw-bold text-muted">Email cím</label>
+                        <input type="email" id="email" name="email" class="form-control rounded-3" value="@Model.User.Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label small fw-bold text-muted">Telefonszám</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control rounded-3" value="@Model.User.PhoneNumber">
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Mentés</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow rounded-4">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold" id="changePasswordModalLabel">Jelszó módosítása</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-controller="Profile" asp-action="ChangePassword" method="post">
+                @Html.AntiForgeryToken()
+                <div class="modal-body py-4">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Jelenlegi jelszó</label>
+                        <input type="password" name="currentPassword" class="form-control rounded-3" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Új jelszó</label>
+                        <input type="password" name="newPassword" class="form-control rounded-3" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-muted">Új jelszó megerősítése</label>
+                        <input type="password" name="confirmPassword" class="form-control rounded-3" required />
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Mégsem</button>
+                    <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">Módosítás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (!isAdmin)
+{
+    <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-danger" id="deleteProfileModalLabel">Fiók törlése</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form asp-controller="Profile" asp-action="DeleteProfile" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body py-4">
+                        <div class="alert alert-warning small rounded-3 mb-3">
+                            <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                            <strong>Figyelem!</strong> A fiók törlése végleges művelet. Az aktív foglalásaid törlődnek, és a fiókodat nem lehet visszaállítani.
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">A törlés jóváhagyásához add meg a jelszavad:</label>
+                            <input type="password" name="password" class="form-control rounded-3" placeholder="Jelenlegi jelszó" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0">
+                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Mégsem</button>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4 fw-bold">Fiók végleges törlése</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
+}
